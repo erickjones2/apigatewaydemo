@@ -12,4 +12,3 @@ routes:
   backend:
     type: HTTP_BACKEND
     url: https://api.weather.gov
----
