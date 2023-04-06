@@ -42,7 +42,7 @@
             "content": {}
           },
           "default": {
-            "description": "A sample description of the Response 11",
+            "description": "A sample description of the Response 12",
             "content": {
               "application/json": {
                 "schema": {
