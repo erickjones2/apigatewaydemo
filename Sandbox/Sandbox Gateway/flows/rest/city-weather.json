@@ -6,17 +6,31 @@
   },
   "servers": [
     {
-      "url": "https://design.integration.us-ashburn-1.ocp.oraclecloud.com/ic/api/integration/v1/flows/rest/CITY_WEATHER/1.0/weather"
+      "url": "https://design.integration.us-ashburn-1.ocp.oraclecloud.com/ic/api/integration/v1/flows/rest/CITY_WEATHER/1.0"
     }
   ],
   "paths": {
-    "/weather/{city}": {
+    "/names/{name}": {
       "get": {
         "parameters": [
           {
-            "name": "city",
+            "name": "name",
             "in": "path",
             "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "flowid",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "email",
+            "in": "query",
             "schema": {
               "type": "string"
             }
@@ -25,9 +39,7 @@
         "responses": {
           "500": {
             "description": "Faults",
-            "content": {
-              
-            }
+            "content": {}
           },
           "default": {
             "description": "A sample description of the Response 12",
@@ -42,14 +54,10 @@
         },
         "security": [
           {
-            "oauth2Authentication": [
-              
-            ]
+            "oauth2Authentication": []
           },
           {
-            "basicAuthentication": [
-              
-            ]
+            "basicAuthentication": []
           }
         ]
       }
@@ -59,24 +67,20 @@
     "schemas": {
       "response-wrapper": {
         "required": [
-          "city",
-          "long",
-          "lat",
-          "temp"
+          "Email",
+          "Hello",
+          "Message"
         ],
         "type": "object",
         "properties": {
-          "city": {
+          "Hello": {
             "type": "string"
           },
-          "long": {
-            "type": "float"
+          "Message": {
+            "type": "string"
           },
-          "lat": {
-            "type": "float"
-          },
-          "temp": {
-            "type": "float"
+          "Email": {
+            "type": "string"
           }
         }
       },
@@ -144,7 +148,7 @@
             "authorizationUrl": "https://idcs-75ed387a38c8444cba85ceb367ae6dff.identity.oraclecloud.com:443/oauth2/v1/authorize",
             "tokenUrl": "https://idcs-75ed387a38c8444cba85ceb367ae6dff.identity.oraclecloud.com:443/oauth2/v1/token",
             "scopes": {
-              "https://F2A22485406D4A00A4610B5862A9F8EA.integration.us-ashburn-1.ocp.oraclecloud.com:443urn:opc:resource:consumer::all": "all"
+              "https://dev-oic-vbcs-poc-idzor6zhmigm-ia.integration.ocp.oraclecloud.com:443urn:opc:resource:consumer::all": "all"
             }
           }
         }
