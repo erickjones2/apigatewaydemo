@@ -20,12 +20,14 @@
             "schema": {
               "type": "string"
             }
-          },
+          }
         ],
         "responses": {
           "500": {
             "description": "Faults",
-            "content": {}
+            "content": {
+              
+            }
           },
           "default": {
             "description": "A sample description of the Response 12",
@@ -40,10 +42,14 @@
         },
         "security": [
           {
-            "oauth2Authentication": []
+            "oauth2Authentication": [
+              
+            ]
           },
           {
-            "basicAuthentication": []
+            "basicAuthentication": [
+              
+            ]
           }
         ]
       }
