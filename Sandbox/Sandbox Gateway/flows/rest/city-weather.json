@@ -1,0 +1,159 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "CITY_WEATHER",
+    "version": "v01"
+  },
+  "servers": [
+    {
+      "url": "https://design.integration.us-ashburn-1.ocp.oraclecloud.com/ic/api/integration/v1/flows/rest/CITY_WEATHER/1.0/weather"
+    }
+  ],
+  "paths": {
+    "/weather/{city}": {
+      "get": {
+        "parameters": [
+          {
+            "name": "city",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "flowid",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "500": {
+            "description": "Faults",
+            "content": {}
+          },
+          "default": {
+            "description": "A sample description of the Response 12",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/response-wrapper"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2Authentication": []
+          },
+          {
+            "basicAuthentication": []
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "response-wrapper": {
+        "required": [
+          "city",
+          "long",
+          "lat",
+          "temp"
+        ],
+        "type": "object",
+        "properties": {
+          "city": {
+            "type": "string"
+          },
+          "long": {
+            "type": "float"
+          },
+          "lat": {
+            "type": "float"
+          },
+          "temp": {
+            "type": "float"
+          }
+        }
+      },
+      "APIInvocationError": {
+        "required": [
+          "detail",
+          "errorCode",
+          "errorDetails",
+          "title",
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "detail": {
+            "type": "string"
+          },
+          "errorCode": {
+            "type": "string"
+          },
+          "errorDetails": {
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "required": [
+                "errorCode",
+                "errorPath",
+                "instance",
+                "title",
+                "type"
+              ],
+              "type": "object",
+              "properties": {
+                "instance": {
+                  "type": "string"
+                },
+                "errorCode": {
+                  "type": "string"
+                },
+                "type": {
+                  "type": "string"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "errorPath": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "oauth2Authentication": {
+        "type": "oauth2",
+        "flows": {
+          "authorizationCode": {
+            "authorizationUrl": "https://idcs-75ed387a38c8444cba85ceb367ae6dff.identity.oraclecloud.com:443/oauth2/v1/authorize",
+            "tokenUrl": "https://idcs-75ed387a38c8444cba85ceb367ae6dff.identity.oraclecloud.com:443/oauth2/v1/token",
+            "scopes": {
+              "https://F2A22485406D4A00A4610B5862A9F8EA.integration.us-ashburn-1.ocp.oraclecloud.com:443urn:opc:resource:consumer::all": "all"
+            }
+          }
+        }
+      },
+      "basicAuthentication": {
+        "type": "http",
+        "scheme": "basic"
+      }
+    }
+  }
+}
