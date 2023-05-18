@@ -10,11 +10,11 @@
     }
   ],
   "paths": {
-    "/names/{name}": {
+    "/city/{city}": {
       "get": {
         "parameters": [
           {
-            "name": "name",
+            "name": "city",
             "in": "path",
             "required": true,
             "schema": {
@@ -23,13 +23,6 @@
           },
           {
             "name": "flowid",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "email",
             "in": "query",
             "schema": {
               "type": "string"
@@ -64,26 +57,7 @@
     }
   },
   "components": {
-    "schemas": {
-      "response-wrapper": {
-        "required": [
-          "Email",
-          "Hello",
-          "Message"
-        ],
-        "type": "object",
-        "properties": {
-          "Hello": {
-            "type": "string"
-          },
-          "Message": {
-            "type": "string"
-          },
-          "Email": {
-            "type": "string"
-          }
-        }
-      },
+    "schemas": {},
       "APIInvocationError": {
         "required": [
           "detail",
@@ -148,7 +122,7 @@
             "authorizationUrl": "https://idcs-75ed387a38c8444cba85ceb367ae6dff.identity.oraclecloud.com:443/oauth2/v1/authorize",
             "tokenUrl": "https://idcs-75ed387a38c8444cba85ceb367ae6dff.identity.oraclecloud.com:443/oauth2/v1/token",
             "scopes": {
-              "https://dev-oic-vbcs-poc-idzor6zhmigm-ia.integration.ocp.oraclecloud.com:443urn:opc:resource:consumer::all": "all"
+              "https://F2A22485406D4A00A4610B5862A9F8EA.integration.us-ashburn-1.ocp.oraclecloud.com:443urn:opc:resource:consumer::all": "all"
             }
           }
         }
