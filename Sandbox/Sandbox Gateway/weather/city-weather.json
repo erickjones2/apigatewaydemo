@@ -29,7 +29,7 @@
             }
           },
           "default": {
-            "description": "A sample description of the Response - 83",
+            "description": "A sample description of the Response - 84",
             "content": {
               "application/json": {
                 "schema": {
