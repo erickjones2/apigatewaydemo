@@ -2,7 +2,7 @@
   "openapi": "3.0.1",
   "info": {
     "title": "CITY_WEATHER",
-    "version": "v02"
+    "version": "v03"
   },
   "servers": [
     {
